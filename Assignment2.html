@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Assignment</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            border: 5px solid black;
+            margin: 10px;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+    // Part 2 
+    <button onclick="handleClick()">Click Me!</button>
+
+    // Part 3
+    <ul id="myList">
+        <li>First item</li>
+        <li>Second item</li>
+        <li>Third item</li>
+    </ul>
+
+    // Part 4
+    <div id="box" onclick="changeBoxColor()"></div>
+
+    <script>
+        // Part 1
+        function calculateArea(width, height) {
+            if (width > 0 && height > 0) {
+                console.log("The area of the rectangle is: " + (width * height));
+            } else {
+                console.log("Invalid input. Please enter positive numbers for width and height.");
+            }
+        }
+
+        calculateArea(5, 3); 
+
+        // Part 2
+        function handleClick() {
+            alert("Button clicked!");
+        }
+
+        // Part 3
+        let ul = document.getElementById("myList");
+        let newLi = document.createElement("li");
+        newLi.textContent = "Fourth item";
+        ul.appendChild(newLi);
+
+        let items = ul.getElementsByTagName("li");
+        for (let i = 0; i < items.length; i++) {
+            items[i].onclick = function () {
+                this.textContent = Math.random().toString(36).substring(2, 8);
+            };
+        }
+
+        // Part 4
+        function changeBoxColor() {
+            document.getElementById("box").style.backgroundColor =
+                "#" + Math.floor(Math.random() * 16777215).toString(16);
+        }
+    </script>
+</body>
+
+</html>
